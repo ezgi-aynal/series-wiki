@@ -2,7 +2,6 @@ import { useState, useEffect, useRef } from 'react';
 import { fetchCharacters, searchCharacters, filterCharactersByStatus } from '../services/api';
 import CharacterCard from '../components/CharacterCard';
 import LoadingSpinner from '../components/LoadingSpinner';
-import ErrorMessage from '../components/ErrorMessage';
 import SearchBar from '../components/SearchBar';
 
 function Characters() {
@@ -16,7 +15,6 @@ function Characters() {
   const [statusFilter, setStatusFilter] = useState('');
   const [searchMode, setSearchMode] = useState(false);
 
-  // ✅ input state tek yerden yönetilecek
   const [searchTerm, setSearchTerm] = useState('');
   const debounceRef = useRef(null);
 
@@ -32,26 +30,24 @@ function Characters() {
       setCharacters(data.results);
       setInfo(data.info);
       setPage(pageNum);
-      setSearchMode(false); // ✅ normal mod
+      setSearchMode(false);
     } catch (err) {
       setError(err.message);
       setCharacters([]);
+      setInfo(null);
     } finally {
       setLoading(false);
     }
   };
 
-  // ✅ sayfa ilk açılış: 47 sayfalık liste gelsin
   useEffect(() => {
     loadCharacters(1, statusFilter);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [statusFilter]);
 
-  // ✅ live search (yazdıkça) – debounce
   useEffect(() => {
     if (debounceRef.current) clearTimeout(debounceRef.current);
 
-    // input boşsa: normal listeye dön (pagination geri gelsin)
     if (!searchTerm.trim()) {
       setSearchMode(false);
       setError(null);
@@ -66,14 +62,13 @@ function Characters() {
 
         const data = await searchCharacters(searchTerm);
 
-        // status seçiliyse, arama sonuçlarını client-side filtrele
         const filtered = statusFilter
           ? data.results.filter((c) => c.status?.toLowerCase() === statusFilter)
           : data.results;
 
         setCharacters(filtered);
-        setInfo(null);       // ✅ aramada pagination kapalı
-        setSearchMode(true); // ✅ arama modundayız
+        setInfo(null);
+        setSearchMode(true);
 
         if (filtered.length === 0) setError('No characters found');
       } catch {
@@ -98,20 +93,19 @@ function Characters() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 py-8 transition-colors">
+    <div className="min-h-screen bg-gradient-to-b from-green-400 to-blue-500 dark:from-green-600 dark:to-blue-700 py-8 transition-colors">
       <div className="container mx-auto px-4">
-        <h1 className="text-4xl font-bold text-gray-800 dark:text-white mb-8">
-          Characters
-        </h1>
+        <h1 className="text-4xl font-bold text-white mb-8">Characters</h1>
 
         <SearchBar
           value={searchTerm}
           onChange={setSearchTerm}
-          onSubmitSearch={() => {}} // buton dursa da olur, live search var
+          onSubmitSearch={() => {}}
           placeholder="Search characters by name..."
         />
 
-        <div className="mb-8 flex gap-4">
+        {/* Status Filter */}
+        <div className="mb-8 flex gap-4 flex-wrap">
           {['', 'alive', 'dead', 'unknown'].map((s) => (
             <button
               key={s || 'all'}
@@ -119,7 +113,7 @@ function Characters() {
               className={`px-4 py-2 rounded-lg font-semibold transition ${
                 statusFilter === s
                   ? 'bg-green-500 text-white'
-                  : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
+                  : 'bg-white/90 dark:bg-gray-800/90 text-gray-700 dark:text-gray-200 hover:bg-white dark:hover:bg-gray-700'
               }`}
             >
               {s === '' ? 'All' : s.charAt(0).toUpperCase() + s.slice(1)}
@@ -127,16 +121,17 @@ function Characters() {
           ))}
         </div>
 
-        {/* ✅ sayfa kaybolmasın: loading inline */}
+        {/* Loading */}
         {loading && (
           <div className="py-10">
             <LoadingSpinner />
           </div>
         )}
 
+        {/* Empty State */}
         {!loading && error && characters.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-gray-600 dark:text-gray-300 text-xl">{error}</p>
+            <p className="text-white text-xl">{error}</p>
             <button
               onClick={() => {
                 setSearchTerm('');
@@ -149,6 +144,7 @@ function Characters() {
           </div>
         )}
 
+        {/* Grid */}
         {!loading && characters.length > 0 && (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {characters.map((character) => (
@@ -157,9 +153,9 @@ function Characters() {
           </div>
         )}
 
-        {/* ✅ pagination sadece normal modda */}
+        {/* Pagination (only normal mode) */}
         {!loading && !searchMode && info && characters.length > 0 && (
-          <div className="flex justify-center gap-4 mt-12">
+          <div className="flex justify-center gap-4 mt-12 flex-wrap">
             <button
               onClick={() => loadCharacters(page - 1, statusFilter)}
               disabled={!info.prev}
@@ -168,7 +164,7 @@ function Characters() {
               Previous
             </button>
 
-            <span className="py-2 px-4 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-lg font-semibold">
+            <span className="py-2 px-4 bg-white/90 dark:bg-gray-800/90 text-gray-800 dark:text-gray-200 rounded-lg font-semibold">
               Page {page} of {info.pages}
             </span>
 

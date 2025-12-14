@@ -34,9 +34,9 @@ function Locations() {
   if (error) return <ErrorMessage message={error} onRetry={() => loadLocations()} />;
 
   return (
-    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 py-8 transition-colors">
-     <div className="container mx-auto px-4">
-      <h1 className="text-4xl font-bold text-gray-800 dark:text-white mb-8">Locations</h1>
+    <div className="min-h-screen bg-gradient-to-b from-green-400 to-blue-500 dark:from-green-600 dark:to-blue-700 py-8 transition-colors">
+      <div className="container mx-auto px-4">
+        <h1 className="text-4xl font-bold text-white mb-8">Locations</h1>
 
         {/* Locations Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -51,17 +51,19 @@ function Locations() {
             <button
               onClick={() => loadLocations(page - 1)}
               disabled={!info.prev}
-              className="bg-green-500 hover:bg-green-600 disabled:bg-gray-300 text-white font-bold py-2 px-6 rounded-lg transition"
+              className="bg-green-500 hover:bg-green-600 disabled:bg-gray-300 dark:disabled:bg-gray-700 text-white font-bold py-2 px-6 rounded-lg transition"
             >
               Previous
             </button>
-            <span className="py-2 px-4 bg-white rounded-lg font-semibold">
+
+            <span className="py-2 px-4 bg-white/90 dark:bg-gray-800/90 text-gray-800 dark:text-gray-200 rounded-lg font-semibold">
               Page {page} of {info.pages}
             </span>
+
             <button
               onClick={() => loadLocations(page + 1)}
               disabled={!info.next}
-              className="bg-green-500 hover:bg-green-600 disabled:bg-gray-300 text-white font-bold py-2 px-6 rounded-lg transition"
+              className="bg-green-500 hover:bg-green-600 disabled:bg-gray-300 dark:disabled:bg-gray-700 text-white font-bold py-2 px-6 rounded-lg transition"
             >
               Next
             </button>

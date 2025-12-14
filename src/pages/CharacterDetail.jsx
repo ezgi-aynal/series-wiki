@@ -37,19 +37,19 @@ function CharacterDetail() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 py-8 transition-colors">
+    <div className="min-h-screen bg-gradient-to-b from-green-400 to-blue-500 dark:from-green-600 dark:to-blue-700 py-8 transition-colors">
       <div className="container mx-auto px-4">
         <Link
           to="/characters"
-          className="text-green-500 hover:text-green-600 dark:hover:text-green-400 mb-6 inline-block transition"
+          className="text-violet-200 hover:text-violet-100 dark:text-violet-300 dark:hover:text-violet-200 mb-6 inline-block transition font-semibold"
         >
           ← Back to Characters
         </Link>
 
-        <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-xl dark:shadow-gray-900/40 overflow-hidden transition-colors">
+        <div className="bg-violet-200/80 dark:bg-violet-900/50 border border-violet-300/60 dark:border-violet-200/10 rounded-xl shadow-xl shadow-black/10 overflow-hidden transition-colors">
           <div className="md:flex">
             {/* Character Image */}
-            <div className="md:w-1/3">
+            <div className="md:w-1/3 bg-violet-300/40 dark:bg-violet-800/40">
               <img
                 src={character.image}
                 alt={character.name}
@@ -59,72 +59,72 @@ function CharacterDetail() {
 
             {/* Character Info */}
             <div className="md:w-2/3 p-8">
-              <h1 className="text-4xl font-bold text-gray-800 dark:text-white mb-4">
+              <h1 className="text-4xl font-bold text-violet-900 dark:text-violet-100 mb-4">
                 {character.name}
               </h1>
 
               <div className="space-y-4">
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-700 dark:text-gray-300">
+                  <h3 className="text-lg font-semibold text-violet-900/80 dark:text-violet-200/80">
                     Status
                   </h3>
-                  <p className={`text-xl ${statusColor[character.status] || 'text-gray-600 dark:text-gray-300'}`}>
+                  <p className={`text-xl ${statusColor[character.status] || 'text-violet-900/80 dark:text-violet-200/80'}`}>
                     {character.status}
                   </p>
                 </div>
 
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-700 dark:text-gray-300">
+                  <h3 className="text-lg font-semibold text-violet-900/80 dark:text-violet-200/80">
                     Species
                   </h3>
-                  <p className="text-xl text-gray-600 dark:text-gray-200">
+                  <p className="text-xl text-violet-900/80 dark:text-violet-200/80">
                     {character.species}
                   </p>
                 </div>
 
                 {character.type && (
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-700 dark:text-gray-300">
+                    <h3 className="text-lg font-semibold text-violet-900/80 dark:text-violet-200/80">
                       Type
                     </h3>
-                    <p className="text-xl text-gray-600 dark:text-gray-200">
+                    <p className="text-xl text-violet-900/80 dark:text-violet-200/80">
                       {character.type}
                     </p>
                   </div>
                 )}
 
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-700 dark:text-gray-300">
+                  <h3 className="text-lg font-semibold text-violet-900/80 dark:text-violet-200/80">
                     Gender
                   </h3>
-                  <p className="text-xl text-gray-600 dark:text-gray-200">
+                  <p className="text-xl text-violet-900/80 dark:text-violet-200/80">
                     {character.gender}
                   </p>
                 </div>
 
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-700 dark:text-gray-300">
+                  <h3 className="text-lg font-semibold text-violet-900/80 dark:text-violet-200/80">
                     Origin
                   </h3>
-                  <p className="text-xl text-gray-600 dark:text-gray-200">
+                  <p className="text-xl text-violet-900/80 dark:text-violet-200/80">
                     {character.origin.name}
                   </p>
                 </div>
 
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-700 dark:text-gray-300">
+                  <h3 className="text-lg font-semibold text-violet-900/80 dark:text-violet-200/80">
                     Last Known Location
                   </h3>
-                  <p className="text-xl text-gray-600 dark:text-gray-200">
+                  <p className="text-xl text-violet-900/80 dark:text-violet-200/80">
                     {character.location.name}
                   </p>
                 </div>
 
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-700 dark:text-gray-300">
+                  <h3 className="text-lg font-semibold text-violet-900/80 dark:text-violet-200/80">
                     Episodes
                   </h3>
-                  <p className="text-xl text-gray-600 dark:text-gray-200">
+                  <p className="text-xl text-violet-900/80 dark:text-violet-200/80">
                     Appeared in {character.episode.length} episodes
                   </p>
                 </div>

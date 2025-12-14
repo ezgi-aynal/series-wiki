@@ -5,26 +5,30 @@ function LocationCard({ location }) {
     <Link to={`/locations/${location.id}`}>
       <div
         className="
-          bg-white dark:bg-gray-800
-          rounded-lg shadow-md dark:shadow-gray-900/40
-          p-6 hover:shadow-xl transition-shadow duration-300
+          bg-violet-200/80 dark:bg-violet-900/50
+          rounded-lg
+          shadow-md shadow-black/10
+          p-6
+          hover:shadow-xl
+          transition-shadow duration-300
           cursor-pointer
+          border border-violet-300/60 dark:border-violet-200/10
         "
       >
-        <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-3">
+        <h3 className="text-xl font-bold text-violet-900 dark:text-violet-100 mb-3">
           {location.name}
         </h3>
 
         <div className="space-y-2">
-          <p className="text-gray-600 dark:text-gray-300">
+          <p className="text-violet-900/80 dark:text-violet-200/80">
             <span className="font-semibold">Type:</span> {location.type}
           </p>
 
-          <p className="text-gray-600 dark:text-gray-300">
+          <p className="text-violet-900/80 dark:text-violet-200/80">
             <span className="font-semibold">Dimension:</span> {location.dimension}
           </p>
 
-          <p className="text-gray-500 dark:text-gray-400 text-sm">
+          <p className="text-violet-900/70 dark:text-violet-200/70 text-sm">
             {location.residents.length} residents
           </p>
         </div>

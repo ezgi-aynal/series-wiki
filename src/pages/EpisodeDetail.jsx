@@ -36,40 +36,40 @@ function EpisodeDetail() {
   if (!episode) return null;
 
   return (
-    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 py-8 transition-colors">
+    <div className="min-h-screen bg-gradient-to-b from-green-400 to-blue-500 dark:from-green-600 dark:to-blue-700 py-8 transition-colors">
       <div className="container mx-auto px-4">
         <Link
           to="/episodes"
-          className="text-green-500 hover:text-green-600 dark:hover:text-green-400 mb-6 inline-block transition"
-        >
+          className="text-white hover:text-white/80 mb-6 inline-block transition font-semibold">
           ← Back to Episodes
         </Link>
 
-        <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-xl dark:shadow-gray-900/40 p-8 mb-8">
-          <div className="flex justify-between items-start mb-6">
-            <h1 className="text-4xl font-bold text-gray-800 dark:text-white">
+        {/* Episode Info Card */}
+        <div className="bg-violet-200/80 dark:bg-violet-900/50 border border-violet-300/60 dark:border-violet-200/10 rounded-xl shadow-xl shadow-black/10 p-8 mb-8">
+          <div className="flex justify-between items-start mb-6 gap-4">
+            <h1 className="text-4xl font-bold text-violet-900 dark:text-violet-100">
               {episode.name}
             </h1>
-            <span className="bg-green-500 text-white px-4 py-2 rounded-full text-lg font-semibold">
+            <span className="bg-violet-600 text-white px-4 py-2 rounded-full text-lg font-semibold whitespace-nowrap">
               {episode.episode}
             </span>
           </div>
 
           <div className="space-y-4">
             <div>
-              <h3 className="text-lg font-semibold text-gray-700 dark:text-gray-200">
+              <h3 className="text-lg font-semibold text-violet-900/80 dark:text-violet-200/80">
                 Air Date
               </h3>
-              <p className="text-xl text-gray-600 dark:text-gray-300">
+              <p className="text-xl text-violet-900/80 dark:text-violet-200/80">
                 {episode.air_date}
               </p>
             </div>
 
             <div>
-              <h3 className="text-lg font-semibold text-gray-700 dark:text-gray-200">
+              <h3 className="text-lg font-semibold text-violet-900/80 dark:text-violet-200/80">
                 Total Characters
               </h3>
-              <p className="text-xl text-gray-600 dark:text-gray-300">
+              <p className="text-xl text-violet-900/80 dark:text-violet-200/80">
                 {episode.characters.length} characters appeared
               </p>
             </div>
@@ -78,21 +78,21 @@ function EpisodeDetail() {
 
         {/* Characters in Episode */}
         <div>
-          <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-6">
+          <h2 className="text-2xl font-bold text-white mb-6">
             Characters in this Episode
           </h2>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
             {characters.map((character) => (
               <Link key={character.id} to={`/characters/${character.id}`}>
-                <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-md dark:shadow-gray-900/40 overflow-hidden hover:shadow-xl transition-shadow">
+                <div className="bg-violet-200/80 dark:bg-violet-900/50 border border-violet-300/60 dark:border-violet-200/10 rounded-lg shadow-md shadow-black/10 overflow-hidden hover:shadow-xl transition-shadow">
                   <img
                     src={character.image}
                     alt={character.name}
                     className="w-full h-48 object-cover"
                   />
                   <div className="p-3">
-                    <p className="text-center font-semibold text-gray-800 dark:text-gray-100 truncate">
+                    <p className="text-center font-semibold text-violet-900 dark:text-violet-100 truncate">
                       {character.name}
                     </p>
                   </div>
@@ -102,7 +102,7 @@ function EpisodeDetail() {
           </div>
 
           {episode.characters.length > 10 && (
-            <p className="text-center text-gray-500 dark:text-gray-400 mt-4">
+            <p className="text-center text-violet-100/90 dark:text-violet-200/80 mt-4">
               Showing first 10 of {episode.characters.length} characters
             </p>
           )}

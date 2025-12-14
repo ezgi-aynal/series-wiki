@@ -34,9 +34,9 @@ function Episodes() {
   if (error) return <ErrorMessage message={error} onRetry={() => loadEpisodes()} />;
 
   return (
-    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 py-8 transition-colors">
-     <div className="container mx-auto px-4">
-      <h1 className="text-4xl font-bold text-gray-800 dark:text-white mb-8">Episodes</h1>
+    <div className="min-h-screen bg-gradient-to-b from-green-400 to-blue-500 dark:from-green-600 dark:to-blue-700 py-8 transition-colors">
+      <div className="container mx-auto px-4">
+        <h1 className="text-4xl font-bold text-white mb-8">Episodes</h1>
 
         {/* Episodes Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -55,9 +55,11 @@ function Episodes() {
             >
               Previous
             </button>
-            <span className="py-2 px-4 bg-white rounded-lg font-semibold">
+
+            <span className="py-2 px-4 bg-white dark:bg-gray-800 text-gray-800 dark:text-white rounded-lg font-semibold">
               Page {page} of {info.pages}
             </span>
+
             <button
               onClick={() => loadEpisodes(page + 1)}
               disabled={!info.next}

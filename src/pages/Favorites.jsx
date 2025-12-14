@@ -6,16 +6,16 @@ function Favorites() {
   const { favorites } = useFavorites();
 
   return (
-    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 py-8 transition-colors">
+    <div className="min-h-screen bg-gradient-to-b from-green-400 to-blue-500 dark:from-green-600 dark:to-blue-700 py-8 transition-colors">
       <div className="container mx-auto px-4">
-        <h1 className="text-4xl font-bold text-gray-800 dark:text-white mb-8">
+        <h1 className="text-4xl font-bold text-white mb-8">
           My Favorite Characters
         </h1>
 
         {favorites.length === 0 ? (
           <div className="text-center py-20">
             <svg
-              className="w-24 h-24 mx-auto text-gray-400 dark:text-gray-600 mb-4"
+              className="w-24 h-24 mx-auto text-white/70 mb-4"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -28,10 +28,10 @@ function Favorites() {
               />
             </svg>
 
-            <h2 className="text-2xl font-semibold text-gray-700 dark:text-gray-300 mb-2">
+            <h2 className="text-2xl font-semibold text-white mb-2">
               No Favorites Yet
             </h2>
-            <p className="text-gray-500 dark:text-gray-400 mb-6">
+            <p className="text-white/80 mb-6">
               Start adding characters to your favorites by clicking the heart icon!
             </p>
 
@@ -44,8 +44,9 @@ function Favorites() {
           </div>
         ) : (
           <>
-            <p className="text-gray-600 dark:text-gray-400 mb-6">
-              You have {favorites.length} favorite character{favorites.length !== 1 ? "s" : ""}
+            <p className="text-white/80 mb-6">
+              You have {favorites.length} favorite character
+              {favorites.length !== 1 ? "s" : ""}
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
