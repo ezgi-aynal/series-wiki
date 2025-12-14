@@ -39,15 +39,18 @@ function CharacterDetail() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-green-400 to-blue-500 dark:from-green-600 dark:to-blue-700 py-8 transition-colors">
       <div className="container mx-auto px-4">
+        
+        {/* Back Button */}
         <Link
           to="/characters"
-          className="text-violet-200 hover:text-violet-100 dark:text-violet-300 dark:hover:text-violet-200 mb-6 inline-block transition font-semibold"
+          className="text-white hover:text-gray-100 dark:text-white dark:hover:text-gray-200 mb-6 inline-block transition font-semibold"
         >
           ← Back to Characters
         </Link>
 
         <div className="bg-violet-200/80 dark:bg-violet-900/50 border border-violet-300/60 dark:border-violet-200/10 rounded-xl shadow-xl shadow-black/10 overflow-hidden transition-colors">
           <div className="md:flex">
+            
             {/* Character Image */}
             <div className="md:w-1/3 bg-violet-300/40 dark:bg-violet-800/40">
               <img
@@ -68,7 +71,12 @@ function CharacterDetail() {
                   <h3 className="text-lg font-semibold text-violet-900/80 dark:text-violet-200/80">
                     Status
                   </h3>
-                  <p className={`text-xl ${statusColor[character.status] || 'text-violet-900/80 dark:text-violet-200/80'}`}>
+                  <p
+                    className={`text-xl ${
+                      statusColor[character.status] ||
+                      'text-violet-900/80 dark:text-violet-200/80'
+                    }`}
+                  >
                     {character.status}
                   </p>
                 </div>
@@ -130,9 +138,9 @@ function CharacterDetail() {
                 </div>
               </div>
             </div>
+
           </div>
         </div>
-
       </div>
     </div>
   );
