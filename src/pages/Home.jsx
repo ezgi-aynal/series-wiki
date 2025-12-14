@@ -15,16 +15,19 @@ function Home() {
         </div>
 
         {/* Feature Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 items-stretch">
+          
           <Link to="/characters" className="group">
-            <div className="bg-violet-200/80 dark:bg-violet-900/50 rounded-xl shadow-xl shadow-black/10 p-8 hover:scale-[1.03] transition-all duration-300 cursor-pointer border border-violet-300/60 dark:border-violet-200/10">
-              <div className="text-5xl mb-4">👥</div>
-              <h2 className="text-2xl font-bold text-violet-900 dark:text-violet-100 mb-3">
-                Characters
-              </h2>
-              <p className="text-violet-900/80 dark:text-violet-200/80 mb-4">
-                Discover over 800 characters from across the multiverse
-              </p>
+            <div className="bg-violet-200/80 dark:bg-violet-900/50 rounded-xl shadow-xl shadow-black/10 p-8 hover:scale-[1.03] transition-all duration-300 cursor-pointer border border-violet-300/60 dark:border-violet-200/10 h-full flex flex-col justify-between">
+              <div>
+                <div className="text-5xl mb-4">👥</div>
+                <h2 className="text-2xl font-bold text-violet-900 dark:text-violet-100 mb-3">
+                  Characters
+                </h2>
+                <p className="text-violet-900/80 dark:text-violet-200/80 mb-4">
+                  Discover over 800 characters from across the multiverse
+                </p>
+              </div>
               <span className="text-violet-900 dark:text-violet-200 font-semibold underline">
                 Explore Characters →
               </span>
@@ -32,14 +35,16 @@ function Home() {
           </Link>
 
           <Link to="/episodes" className="group">
-            <div className="bg-violet-200/80 dark:bg-violet-900/50 rounded-xl shadow-xl shadow-black/10 p-8 hover:scale-[1.03] transition-all duration-300 cursor-pointer border border-violet-300/60 dark:border-violet-200/10">
-              <div className="text-5xl mb-4">📺</div>
-              <h2 className="text-2xl font-bold text-violet-900 dark:text-violet-100 mb-3">
-                Episodes
-              </h2>
-              <p className="text-violet-900/80 dark:text-violet-200/80 mb-4">
-                Browse all episodes from every season
-              </p>
+            <div className="bg-violet-200/80 dark:bg-violet-900/50 rounded-xl shadow-xl shadow-black/10 p-8 hover:scale-[1.03] transition-all duration-300 cursor-pointer border border-violet-300/60 dark:border-violet-200/10 h-full flex flex-col justify-between">
+              <div>
+                <div className="text-5xl mb-4">📺</div>
+                <h2 className="text-2xl font-bold text-violet-900 dark:text-violet-100 mb-3">
+                  Episodes
+                </h2>
+                <p className="text-violet-900/80 dark:text-violet-200/80 mb-4">
+                  Browse all episodes from every season
+                </p>
+              </div>
               <span className="text-violet-900 dark:text-violet-200 font-semibold underline">
                 View Episodes →
               </span>
@@ -47,19 +52,22 @@ function Home() {
           </Link>
 
           <Link to="/locations" className="group">
-            <div className="bg-violet-200/80 dark:bg-violet-900/50 rounded-xl shadow-xl shadow-black/10 p-8 hover:scale-[1.03] transition-all duration-300 cursor-pointer border border-violet-300/60 dark:border-violet-200/10">
-              <div className="text-5xl mb-4">🌍</div>
-              <h2 className="text-2xl font-bold text-violet-900 dark:text-violet-100 mb-3">
-                Locations
-              </h2>
-              <p className="text-violet-900/80 dark:text-violet-200/80 mb-4">
-                Visit strange dimensions and exotic planets
-              </p>
+            <div className="bg-violet-200/80 dark:bg-violet-900/50 rounded-xl shadow-xl shadow-black/10 p-8 hover:scale-[1.03] transition-all duration-300 cursor-pointer border border-violet-300/60 dark:border-violet-200/10 h-full flex flex-col justify-between">
+              <div>
+                <div className="text-5xl mb-4">🌍</div>
+                <h2 className="text-2xl font-bold text-violet-900 dark:text-violet-100 mb-3">
+                  Locations
+                </h2>
+                <p className="text-violet-900/80 dark:text-violet-200/80 mb-4">
+                  Visit strange dimensions and exotic planets
+                </p>
+              </div>
               <span className="text-violet-900 dark:text-violet-200 font-semibold underline">
                 Explore Locations →
               </span>
             </div>
           </Link>
+
         </div>
 
         {/* About Section */}
@@ -77,6 +85,7 @@ function Home() {
             accurate and up-to-date information about your favorite animated series.
           </p>
         </div>
+
       </div>
     </div>
   );
